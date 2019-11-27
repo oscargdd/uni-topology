@@ -21,13 +21,6 @@ module ietf-uni-topology {
        "Section 6.1 of RFC 8345: A YANG Data Model for Network Topologies";
 
   }
-  import l2vpn {
-    prefix l2vpn;
-    reference
-       "RFC 8466: A YANG Data Model for L2VPN";
-
-  }
-
   organization
    "IETF OPSA (Operations and Management Area) Working Group ";
  contact
@@ -70,6 +63,23 @@ module ietf-uni-topology {
       "draft-ogondio-opsawg-uni-topology";
     }
 
+    identity encapsulation-type {
+        description
+          "Identity for the encapsulation type.";
+      }
+
+      identity ethernet {
+        base encapsulation-type;
+        description
+          "Identity for Ethernet type.";
+      }
+
+      identity vlan {
+        base encapsulation-type;
+        description
+        "Identity for the VLAN type.";
+      }
+
   grouping uni-information-group {
     list service-attachment-point {
       key "attachment-id";
@@ -80,7 +90,7 @@ module ietf-uni-topology {
       }
       leaf type {
         type identityref {
-          base if:interface-type;
+          base if:iana-interface-type;
         }
         config false;
         description
@@ -109,10 +119,13 @@ module ietf-uni-topology {
           "Operational Status UP/DOWN";
       }
       leaf encapsulation-type {
-        type l2vpn:encapsulation-type;
+        type identityref {
+          base encapsulation-type;
+      }
+        default "ethernet";
         description
           "Encapsulation type.  By default, the
-           encapsulation type is set to 'untagged'.";
+           encapsulation type is set to 'ethernet'.";
       }
       description
         "service-edge-point refers to the available ports on
