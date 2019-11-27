@@ -3,10 +3,10 @@ module ietf-uni-topology {
   namespace "urn:ietf:params:xml:ns:yang:ietf-uni-topology";
   prefix uni;
 
-  import ietf-interfaces {
+  import iana-if-type {
     prefix if;
     reference
-    "RFC 8343: A YANG Data Model for Interface Management";
+    "RFC 7224: A YANG Data Model for Interface Management";
 
   }
   import ietf-network-topology {
@@ -19,6 +19,12 @@ module ietf-uni-topology {
     prefix nw;
     reference
        "Section 6.1 of RFC 8345: A YANG Data Model for Network Topologies";
+
+  }
+  import l2vpn {
+    prefix l2vpn;
+    reference
+       "RFC 8466: A YANG Data Model for L2VPN";
 
   }
 
@@ -103,7 +109,7 @@ module ietf-uni-topology {
           "Operational Status UP/DOWN";
       }
       leaf encapsulation-type {
-        type string;
+        type l2vpn:encapsulation-type;
         description
           "Encapsulation type.  By default, the
            encapsulation type is set to 'untagged'.";
