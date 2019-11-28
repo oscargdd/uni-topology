@@ -81,6 +81,7 @@ module ietf-uni-topology {
       }
 
   grouping uni-information-group {
+  container service-attachment-points{
     list service-attachment-point {
       key "attachment-id";
       leaf attachment-id {
@@ -132,9 +133,11 @@ module ietf-uni-topology {
          the network.";
     }
     description
-      "UNI Information";
+      "Service Attachment points Information";
   }
-
+  description
+    "UNI Information";
+}
   augment "/nw:networks/nw:network/nw:node" {
     description
       "Parameters for the service edge point level.";
