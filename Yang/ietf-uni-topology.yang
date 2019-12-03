@@ -120,7 +120,44 @@ module ietf-uni-topology {
           "Administrative Status UP/DOWN";
       }
       leaf oper-status {
-         type boolean;
+      type enumeration {
+           enum up {
+             value 1;
+             description
+               "Ready to pass packets.";
+           }
+           enum down {
+             value 2;
+             description
+               "The interface does not pass any packets.";
+           }
+           enum testing {
+             value 3;
+             description
+               "In some test mode.  No operational packets can
+                be passed.";
+           }
+           enum unknown {
+             value 4;
+             description
+               "Status cannot be determined for some reason.";
+           }
+           enum dormant {
+             value 5;
+             description
+               "Waiting for some external event.";
+           }
+           enum not-present {
+             value 6;
+             description
+               "Some component (typically hardware) is missing.";
+           }
+           enum lower-layer-down {
+             value 7;
+             description
+               "Down due to state of lower-layer interface(s).";
+           }
+         }
         description
           "Operational Status UP/DOWN";
       }
