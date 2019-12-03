@@ -7,8 +7,8 @@ module ietf-uni-topology {
     prefix if;
     reference
     "RFC 7224: A YANG Data Model for Interface Management";
-
   }
+
   import ietf-network-topology {
     prefix nt;
     reference
@@ -87,6 +87,11 @@ module ietf-uni-topology {
       leaf attachment-id {
         type nt:tp-id;
         description
+          "Interface ID";
+      }
+      leaf name {
+        type string;
+        description
           "Name of the Interface";
       }
       leaf type {
@@ -107,7 +112,7 @@ module ietf-uni-topology {
            A NETCONF server MUST reply with an rpc-error with the
            error-tag 'invalid-value' in this case.";
         reference
-          "RFC 2863: The Interfaces Group MIB - ifType";
+          "RFC 7224: The Interfaces Group MIB - ifType";
       }
       leaf admin-status {
         type boolean;
