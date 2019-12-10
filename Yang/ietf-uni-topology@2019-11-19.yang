@@ -116,6 +116,17 @@ module ietf-uni-topology {
       "UNI Information";
   }
 
+  augment "/nw:networks/nw:network/nw:network-types" {
+       container uni-topology {
+         presence "indicates UNI Unicast topology";
+         description
+           "The presence of the container node indicates UNI 
+           topology";
+       }
+       description
+         "Introduces new network type for UNI Unicast topology";
+       }
+
   augment "/nw:networks/nw:network/nw:node" {
     description
       "Parameters for the service edge point level.";
