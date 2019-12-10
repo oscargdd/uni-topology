@@ -57,7 +57,7 @@ module ietf-uni-topology {
    described in BCP 14 (RFC 2119) (RFC 8174) when, and only when,
    they appear in all capitals, as shown here.";
 
- revision 2019-11-19 {
+ revision 2019-12-10 {
     description
     "Initial version";
     reference
