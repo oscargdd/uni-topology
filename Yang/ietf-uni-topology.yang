@@ -27,7 +27,7 @@ module ietf-uni-topology {
     "   Editor:    Oscar Gonzalez de Dios
                   <mailto:oscar.gonzalezdedios@telefonica.com>
         Editor:   Samier Barguil
-                  <mailto:alejandro.aguado_martin@nokia.com>
+                  <mailto:samier.barguilgiraldo.ext@telefonica.com>
         Editor:    Qin Wu
                   <mailto:bill.wu@huawei.com>
         Editor:   Mohamed Boucadair
@@ -70,7 +70,7 @@ module ietf-uni-topology {
       leaf attachment-id {
         type nt:tp-id;
         description
-          "Name of the interface";
+          "Name of the interface.";
       }
       leaf type {
         type identityref {
@@ -85,12 +85,12 @@ module ietf-uni-topology {
       leaf admin-status {
         type boolean;
         description
-          "Administrative Status UP/DOWN";
+          "Administrative Status UP/DOWN.";
       }
       leaf oper-status {
         type boolean;
         description
-          "Operational Status UP/DOWN";
+          "Operational Status UP/DOWN.";
       }
       leaf encapsulation-type {
         type string;
@@ -103,12 +103,12 @@ module ietf-uni-topology {
 
   augment "/nw:networks/nw:network/nw:network-types" {
     description
-      "Introduces new network type for UNI Unicast topology";
+      "Introduces new network type for UNI unicast topology.";
     container uni-topology {
-      presence "indicates UNI Unicast topology";
+      presence "indicates UNI unicast topology";
       description
         "The presence of the container node indicates UNI
-         topology";
+         topology.";
     }
   }
 
